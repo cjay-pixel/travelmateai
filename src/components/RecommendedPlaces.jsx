@@ -1,130 +1,92 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { AiFillStar } from 'react-icons/ai';
 
 function RecommendedPlaces() {
+  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(0);
 
   const places = [
     {
       id: 1,
       name: 'Boracay Island',
-      location: 'Aklan',
-      price: '₱2,500',
+      location: 'Western Visayas',
+      price: '₱800-2,500',
       rating: 4.8,
-      reviews: 2340,
+      reviews: 320,
       image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=500&h=400&fit=crop',
       category: 'Beach'
     },
     {
       id: 2,
-      name: 'Palawan El Nido',
-      location: 'Palawan',
-      price: '₱3,200',
+      name: 'Palawan',
+      location: 'MIMAROPA',
+      price: '₱1,200-3,000',
       rating: 4.9,
-      reviews: 3120,
+      reviews: 450,
       image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=400&fit=crop',
       category: 'Island'
     },
     {
       id: 3,
-      name: 'Cebu Mactan',
-      location: 'Cebu',
-      price: '₱1,800',
+      name: 'Sagano Bamboo Grove',
+      location: 'Cordillera',
+      price: '₱600-1,500',
       rating: 4.6,
-      reviews: 1890,
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=400&fit=crop',
-      category: 'Resort'
+      reviews: 280,
+      image: 'https://images.unsplash.com/photo-1522383881298-6f1b3d7a2d8e?w=500&h=400&fit=crop',
+      category: 'Nature'
     },
     {
       id: 4,
-      name: 'Davao Samal Island',
-      location: 'Davao',
-      price: '₱2,100',
-      rating: 4.7,
-      reviews: 1520,
-      image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=500&h=400&fit=crop',
-      category: 'Beach'
-    },
-    {
-      id: 5,
-      name: 'Iloilo Guimaras',
-      location: 'Iloilo',
-      price: '₱1,900',
+      name: 'Cebu City',
+      location: 'Central Visayas',
+      price: '₱700-2,000',
       rating: 4.5,
-      reviews: 980,
-      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=400&fit=crop',
-      category: 'Island'
-    },
-    {
-      id: 6,
-      name: 'Banaue Rice Terraces',
-      location: 'Ifugao',
-      price: '₱1,500',
-      rating: 4.9,
-      reviews: 2105,
-      image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=500&h=400&fit=crop',
-      category: 'Mountain'
-    },
-    {
-      id: 7,
-      name: 'Siargao Island',
-      location: 'Surigao',
-      price: '₱2,400',
-      rating: 4.8,
-      reviews: 2234,
+      reviews: 350,
       image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&h=400&fit=crop',
       category: 'Beach'
     },
     {
-      id: 8,
-      name: 'Batanes Haveltian',
-      location: 'Batanes',
-      price: '₱3,500',
+      id: 5,
+      name: 'Chocolate Hills',
+      location: 'Central Visayas',
+      price: '₱500-1,500',
+      rating: 4.7,
+      reviews: 290,
+      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=400&fit=crop',
+      category: 'Nature'
+    },
+    {
+      id: 6,
+      name: 'Machu Picchu',
+      location: 'Cusco Region',
+      price: '₱1,500-3,500',
       rating: 4.9,
-      reviews: 1870,
-      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=400&fit=crop',
-      category: 'Island'
+      reviews: 500,
+      image: 'https://images.unsplash.com/photo-1587595431973-160b0d94add1?w=500&h=300&fit=crop',
+      category: 'Historical'
     },
     {
-      id: 9,
-      name: 'Siquijor Enchanted',
-      location: 'Siquijor',
-      price: '₱2,000',
-      rating: 4.7,
-      reviews: 1456,
-      image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=500&h=400&fit=crop',
-      category: 'Beach'
+      id: 7,
+      name: 'Ilocos Region',
+      location: 'Ilocos',
+      price: '₱400-1,200',
+      rating: 4.4,
+      reviews: 200,
+      image: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=500&h=300&fit=crop',
+      category: 'Historical'
     },
     {
-      id: 10,
-      name: 'Coron Palawan',
-      location: 'Palawan',
-      price: '₱2,800',
-      rating: 4.8,
-      reviews: 2567,
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=400&fit=crop',
-      category: 'Island'
-    },
-    {
-      id: 11,
-      name: 'Panglao Bohol',
-      location: 'Bohol',
-      price: '₱2,200',
-      rating: 4.6,
-      reviews: 1789,
-      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=400&fit=crop',
-      category: 'Beach'
-    },
-    {
-      id: 12,
+      id: 8,
       name: 'Camiguin Island',
-      location: 'Camiguin',
-      price: '₱2,100',
-      rating: 4.7,
-      reviews: 1234,
-      image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=500&h=400&fit=crop',
-      category: 'Island'
+      location: 'Northern Mindanao',
+      price: '₱700-1,800',
+      rating: 4.6,
+      reviews: 240,
+      image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=500&h=300&fit=crop',
+      category: 'Beach'
     },
   ];
 
@@ -154,7 +116,10 @@ function RecommendedPlaces() {
         <div className="row g-4 mb-5">
           {currentPlaces.map((place) => (
             <div key={place.id} className="col-lg-2 col-md-4 col-sm-6">
-              <div className="card h-100 border-0 shadow-sm" style={{ cursor: 'pointer', transition: 'all 0.3s ease' }}
+              <div 
+                className="card h-100 border-0 shadow-sm" 
+                style={{ cursor: 'pointer', transition: 'all 0.3s ease' }}
+                onClick={() => navigate(`/destination/${place.id}`)}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.12)';
                   e.currentTarget.style.transform = 'translateY(-4px)';
@@ -191,6 +156,7 @@ function RecommendedPlaces() {
                   <button 
                     className="btn btn-light rounded-circle position-absolute top-0 end-0 m-2"
                     style={{ width: '36px', height: '36px', padding: '0', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.2s ease' }}
+                    onClick={(e) => e.stopPropagation()}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.color = '#ff385c';
                       e.currentTarget.style.transform = 'scale(1.1)';

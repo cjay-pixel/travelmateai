@@ -1,129 +1,91 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { AiFillStar } from 'react-icons/ai';
 
 function RecommendedStays() {
+  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(0);
 
   const stays = [
     {
       id: 1,
-      name: 'Luxury Beachfront Resort',
-      location: 'Boracay, Aklan',
-      price: '₱4,500',
-      rating: 4.9,
-      reviews: 2156,
+      name: 'Boracay Beach Resort',
+      location: 'Boracay Island',
+      price: '₱2,000',
+      rating: 4.5,
+      reviews: 320,
       image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&h=400&fit=crop',
       type: 'Resort'
     },
     {
       id: 2,
-      name: 'Island Paradise Villa',
-      location: 'Palawan, El Nido',
-      price: '₱5,200',
-      rating: 4.8,
-      reviews: 1890,
+      name: 'El Nido Eco-Lodge',
+      location: 'Palawan',
+      price: '₱1,800',
+      rating: 4.7,
+      reviews: 450,
       image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=400&fit=crop',
-      type: 'Villa'
+      type: 'Eco-Lodge'
     },
     {
       id: 3,
-      name: 'Boutique Hotel Downtown',
-      location: 'Cebu City',
-      price: '₱2,800',
-      rating: 4.7,
-      reviews: 1567,
+      name: 'Mountain Resort Cottage',
+      location: 'Sagano Bamboo Grove',
+      price: '₱1,200',
+      rating: 4.4,
+      reviews: 280,
       image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&h=400&fit=crop',
-      type: 'Hotel'
-    },
-    {
-      id: 4,
-      name: 'Tropical Garden Bungalows',
-      location: 'Davao, Samal',
-      price: '₱3,200',
-      rating: 4.6,
-      reviews: 1234,
-      image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&h=400&fit=crop',
-      type: 'Bungalow'
-    },
-    {
-      id: 5,
-      name: 'Cozy Mountain Retreat',
-      location: 'Ifugao, Banaue',
-      price: '₱2,200',
-      rating: 4.8,
-      reviews: 945,
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=400&fit=crop',
       type: 'Cottage'
     },
     {
-      id: 6,
-      name: 'Five-Star Oceanfront',
-      location: 'Batanes, Basco',
-      price: '₱6,500',
-      rating: 4.9,
-      reviews: 876,
-      image: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=500&h=400&fit=crop',
+      id: 4,
+      name: 'Waterfront Hotel Cebu',
+      location: 'Cebu City',
+      price: '₱1,500',
+      rating: 4.4,
+      reviews: 350,
+      image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&h=400&fit=crop',
+      type: 'Hotel'
+    },
+    {
+      id: 5,
+      name: 'Bohol Nature Resort',
+      location: 'Chocolate Hills',
+      price: '₱1,100',
+      rating: 4.3,
+      reviews: 290,
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=400&fit=crop',
       type: 'Resort'
     },
     {
+      id: 6,
+      name: 'Mountain Lodge Peru',
+      location: 'Machu Picchu',
+      price: '₱2,000',
+      rating: 4.8,
+      reviews: 500,
+      image: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=500&h=400&fit=crop',
+      type: 'Lodge'
+    },
+    {
       id: 7,
-      name: 'Surfer\'s Paradise Hotel',
-      location: 'Siargao, Surigao',
-      price: '₱3,800',
-      rating: 4.7,
-      reviews: 1123,
+      name: 'Heritage Hotel Vigan',
+      location: 'Ilocos Region',
+      price: '₱900',
+      rating: 4.3,
+      reviews: 200,
       image: 'https://images.unsplash.com/photo-1551524164-0b41c4874456?w=500&h=400&fit=crop',
       type: 'Hotel'
     },
     {
       id: 8,
-      name: 'Enchanted Island Resort',
-      location: 'Siquijor',
-      price: '₱3,500',
-      rating: 4.6,
-      reviews: 1045,
-      image: 'https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=500&h=400&fit=crop',
-      type: 'Resort'
-    },
-    {
-      id: 9,
-      name: 'Modern City Apartment',
-      location: 'Manila, Makati',
-      price: '₱2,500',
+      name: 'Camiguin Island Resort',
+      location: 'Camiguin Island',
+      price: '₱1,300',
       rating: 4.5,
-      reviews: 2034,
-      image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&h=400&fit=crop',
-      type: 'Apartment'
-    },
-    {
-      id: 10,
-      name: 'Coral Garden Diving Lodge',
-      location: 'Coron, Palawan',
-      price: '₱4,200',
-      rating: 4.8,
-      reviews: 1456,
-      image: 'https://images.unsplash.com/photo-1542314503-37143adecb26?w=500&h=400&fit=crop',
-      type: 'Lodge'
-    },
-    {
-      id: 11,
-      name: 'Chocolate Hills View Hotel',
-      location: 'Bohol, Panglao',
-      price: '₱3,100',
-      rating: 4.7,
-      reviews: 1289,
-      image: 'https://images.unsplash.com/photo-1571896349842-fb88d92ff25e?w=500&h=400&fit=crop',
-      type: 'Hotel'
-    },
-    {
-      id: 12,
-      name: 'Volcanic Hot Spring Resort',
-      location: 'Camiguin',
-      price: '₱3,600',
-      rating: 4.8,
-      reviews: 987,
-      image: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=500&h=400&fit=crop',
+      reviews: 240,
+      image: 'https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=500&h=400&fit=crop',
       type: 'Resort'
     },
   ];
@@ -154,7 +116,10 @@ function RecommendedStays() {
         <div className="row g-4 mb-5">
           {currentStays.map((stay) => (
             <div key={stay.id} className="col-lg-2 col-md-4 col-sm-6">
-              <div className="card h-100 border-0 shadow-sm" style={{ cursor: 'pointer', transition: 'all 0.3s ease' }}
+              <div 
+                className="card h-100 border-0 shadow-sm" 
+                style={{ cursor: 'pointer', transition: 'all 0.3s ease' }}
+                onClick={() => navigate(`/destination/${stay.id}`)}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.12)';
                   e.currentTarget.style.transform = 'translateY(-4px)';
@@ -191,6 +156,7 @@ function RecommendedStays() {
                   <button 
                     className="btn btn-light rounded-circle position-absolute top-0 end-0 m-2"
                     style={{ width: '36px', height: '36px', padding: '0', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.2s ease' }}
+                    onClick={(e) => e.stopPropagation()}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.color = '#ff385c';
                       e.currentTarget.style.transform = 'scale(1.1)';
